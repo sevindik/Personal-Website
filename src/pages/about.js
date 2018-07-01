@@ -57,9 +57,6 @@ class About extends React.Component {
   render() {
     return (
       <span>You are now on the about page</span>
-      // <AppBar position="static">
-      //   <Menu title="About me"/>
-      // </AppBar>
     );
   }
 }

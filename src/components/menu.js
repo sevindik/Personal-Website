@@ -35,6 +35,7 @@ const styles = theme => ({
 class Menu extends React.Component {
   state = {
     open: false,
+    title: "Ibrahim Sevindik Home Page"
   };
 
   toggleDrawer = (side, open) => () => {
@@ -42,6 +43,12 @@ class Menu extends React.Component {
       [side]: open,
     });
   };
+
+  setTitle = (newTitle) => () => {
+    this.setState({
+      title: newTitle
+    });
+  }
   
   render() {
     const { classes } = this.props;
@@ -49,22 +56,20 @@ class Menu extends React.Component {
 
     const sideList = (
       <div className={this.props.classes.list}>
-        <Router>
           <List>
-            <ListItem button component={Link} to="/">
+            <ListItem button component={Link} to="/" onClick={this.setTitle("Ibrahim Sevindik Home Page")}>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>         
-            <ListItem button component={Link} to="/about">
+            <ListItem button component={Link} to="/about" onClick={this.setTitle("About Me")}>
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="About me" />
+              <ListItemText primary="About Me" />
             </ListItem>
           </List>
-        </Router>
       </div>
     );
 
@@ -89,7 +94,7 @@ class Menu extends React.Component {
             </div>
           </Drawer>
           <Typography variant="title" color="inherit" className={this.props.classes.flex}>
-            {this.props.title}
+            {this.state.title}
           </Typography>
       </Toolbar>
     );

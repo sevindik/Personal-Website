@@ -69,8 +69,6 @@ class Index extends React.Component {
             <Menu title="Ibrahim Sevindik Home Page"/>
           </AppBar>
           <Routes />
-
-
         </div>
       </Router>
     );
